@@ -1,4 +1,6 @@
 const path = require('path');
+const RSSFeedTitle = "Dev Abramov's Overreacted Blog RSS Feed";
+const BlogName = 'Overreacted';
 module.exports = {
   siteMetadata: {
     title: 'gatsby-theme-dev-blog',
@@ -14,7 +16,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
+        path: path.resolve(`./src/pages`),
         name: 'pages',
       },
     },
@@ -81,7 +83,7 @@ module.exports = {
               return allMarkdownRemark.edges.map(edge => {
                 const siteUrl = site.siteMetadata.siteUrl;
                 const postText = `
-                <div style="margin-top=55px; font-style: italic;">(This is an article posted to my blog at overreacted.io. You can read it online by <a href="${siteUrl +
+                <div style="margin-top=55px; font-style: italic;">(This is an article posted to my blog. You can read it online by <a href="${siteUrl +
                   edge.node.fields.slug}">clicking here</a>.)</div>
               `;
 
@@ -127,7 +129,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: "Dev Abramov's Overreacted Blog RSS Feed",
+            title: RSSFeedTitle,
           },
         ],
       },
@@ -135,8 +137,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Overreacted`,
-        short_name: `Overreacted`,
+        name: BlogName,
+        short_name: BlogName,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#ffa7c4`,

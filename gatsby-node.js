@@ -35,7 +35,7 @@ exports.createPages = ({ graphql, actions }) => {
                     slug
                     langKey
                     directoryName
-                    maybeAbsoluteLinks
+                    # maybeAbsoluteLinks # only needed for i18n
                   }
                   frontmatter {
                     title
