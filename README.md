@@ -38,14 +38,6 @@ spoiler: hello this is a dev blog
 ---
 
 foo bar
-
-```js
-function test() {
-  return <div>post pls ignore</div>
-}
-```
-
-![React homepage screenshot](./react.png)
 ```
 
 ## WARNINGS
