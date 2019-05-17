@@ -168,11 +168,5 @@ module.exports = {
         path: path.join(__dirname, `src`, `pages`),
       },
     },
-    {
-      resolve: 'gatsby-plugin-compile-es6-packages',
-      options: {
-        modules: ['gatsby-theme-dev-blog'],
-      },
-    },
   ],
 };
