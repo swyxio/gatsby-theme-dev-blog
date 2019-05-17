@@ -1,20 +1,21 @@
 {
-  "name": "overreacted",
+  "name": "gatsby-theme-dev-blog",
   "private": true,
-  "description": "Overreacted",
-  "version": "1.0.0",
-  "author": "Dan Abramov <dan.abramov@me.com>",
+  "description": "gatsby-theme-dev-blog",
+  "version": "0.0.1",
+  "author": "swyx <dont-email@me.com>",
   "bugs": {
-    "url": "https://github.com/gaearon/overreacted.io/issues"
+    "url": "https://github.com/sw-yx/gatsby-theme-dev-blog/issues"
   },
   "dependencies": {
-    "gatsby": "^2.0.76",
     "gatsby-plugin-catch-links": "^2.0.9",
+    "gatsby-plugin-compile-es6-packages": "^1.1.0",
     "gatsby-plugin-feed": "^2.0.8",
     "gatsby-plugin-google-analytics": "^2.0.5",
     "gatsby-plugin-i18n": "^0.4.2",
     "gatsby-plugin-manifest": "^2.0.5",
     "gatsby-plugin-offline": "^2.0.5",
+    "gatsby-plugin-page-creator": "^2.0.13",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sharp": "^2.0.16",
     "gatsby-plugin-typography": "^2.2.0",
@@ -32,20 +33,26 @@
     "lint-staged": "^8.1.0",
     "lodash": "^4.17.11",
     "prismjs": "^1.15.0",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
     "typography": "^0.16.17",
     "typography-theme-wordpress-2016": "^0.15.10"
   },
+  "peerDependencies": {
+    "gatsby": "^2.0.76",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.11.1",
+    "gatsby": "^2.0.76",
     "gh-pages": "^1.2.0",
-    "prettier": "^1.14.2"
+    "prettier": "^1.14.2",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
   },
-  "homepage": "https://overreacted.io",
+  "homepage": "https://github.com/sw-yx/gatsby-theme-dev-blog",
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",
