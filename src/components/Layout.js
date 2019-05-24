@@ -1,25 +1,25 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import Toggle from './Toggle';
-import Helmet from 'react-helmet';
+import React from 'react'
+import { Link } from 'gatsby'
+import Toggle from './Toggle'
+import Helmet from 'react-helmet'
 
-import { rhythm, scale } from '../utils/typography';
-import sun from '../assets/sun.png';
-import moon from '../assets/moon.png';
+import { rhythm, scale } from '../utils/typography'
+import sun from '../assets/sun.png'
+import moon from '../assets/moon.png'
 
 class Layout extends React.Component {
   state = {
     theme: null,
-  };
+  }
   componentDidMount() {
-    this.setState({ theme: window.__theme });
+    this.setState({ theme: window.__theme })
     window.__onThemeChange = () => {
-      this.setState({ theme: window.__theme });
-    };
+      this.setState({ theme: window.__theme })
+    }
   }
   renderHeader() {
-    const { location, title } = this.props;
-    const rootPath = `${__PATH_PREFIX__}/`;
+    const { location, title } = this.props
+    const rootPath = `${__PATH_PREFIX__}/`
 
     if (location.pathname === rootPath) {
       return (
@@ -41,7 +41,7 @@ class Layout extends React.Component {
             {title}
           </Link>
         </h1>
-      );
+      )
     } else {
       return (
         <h3
@@ -64,11 +64,11 @@ class Layout extends React.Component {
             {title}
           </Link>
         </h3>
-      );
+      )
     }
   }
   render() {
-    const { children } = this.props;
+    const { children } = this.props
 
     return (
       <div
@@ -140,8 +140,8 @@ class Layout extends React.Component {
           {children}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Layout;
+export default Layout

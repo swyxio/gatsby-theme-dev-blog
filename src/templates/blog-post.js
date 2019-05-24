@@ -1,33 +1,33 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import get from 'lodash/get';
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import get from 'lodash/get'
 
-import '../fonts/fonts-post.css';
-import Bio from '../components/Bio';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
-import Signup from '../components/Signup';
-import Panel from '../components/Panel';
-import { formatPostDate, formatReadingTime } from '../utils/helpers';
-import { rhythm, scale } from '../utils/typography';
+import '../fonts/fonts-post.css'
+import Bio from '../components/Bio'
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
+import Signup from '../components/Signup'
+import Panel from '../components/Panel'
+import { formatPostDate, formatReadingTime } from '../utils/helpers'
+import { rhythm, scale } from '../utils/typography'
 import {
   codeToLanguage,
   createLanguageLink,
   loadFontsForCode,
-} from '../utils/i18n';
+} from '../utils/i18n'
 
-const GITHUB_USERNAME = 'gaearon';
-const GITHUB_REPO_NAME = 'overreacted.io';
+const GITHUB_USERNAME = 'gaearon'
+const GITHUB_REPO_NAME = 'overreacted.io'
 const systemFont = `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif`;
+    "Droid Sans", "Helvetica Neue", sans-serif`
 
 class Translations extends React.Component {
   render() {
-    let { translations, lang, languageLink, editUrl } = this.props;
+    let { translations, lang, languageLink, editUrl } = this.props
 
-    let readerTranslations = translations.filter(lang => lang !== 'ru');
-    let hasRussianTranslation = translations.indexOf('ru') !== -1;
+    let readerTranslations = translations.filter(lang => lang !== 'ru')
+    let hasRussianTranslation = translations.indexOf('ru') !== -1
 
     return (
       <div className="translations">
@@ -86,53 +86,53 @@ class Translations extends React.Component {
           )}
         </Panel>
       </div>
-    );
+    )
   }
 }
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark;
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title');
+    const post = this.props.data.markdownRemark
+    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     let {
       previous,
       next,
       slug,
       translations,
       translatedLinks,
-    } = this.props.pageContext;
-    const lang = post.fields.langKey;
+    } = this.props.pageContext
+    const lang = post.fields.langKey
 
     // Replace original links with translated when available.
-    let html = post.html;
+    let html = post.html
     translatedLinks.forEach(link => {
       // jeez
       function escapeRegExp(str) {
-        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
       }
-      let translatedLink = '/' + lang + link;
+      let translatedLink = '/' + lang + link
       html = html.replace(
         new RegExp('"' + escapeRegExp(link) + '"', 'g'),
         '"' + translatedLink + '"'
-      );
-    });
+      )
+    })
 
-    translations = translations.slice();
+    translations = translations.slice()
     translations.sort((a, b) => {
-      return codeToLanguage(a) < codeToLanguage(b) ? -1 : 1;
-    });
+      return codeToLanguage(a) < codeToLanguage(b) ? -1 : 1
+    })
 
-    loadFontsForCode(lang);
+    loadFontsForCode(lang)
     // TODO: this curried function is annoying
-    const languageLink = createLanguageLink(slug, lang);
-    const enSlug = languageLink('en');
+    const languageLink = createLanguageLink(slug, lang)
+    const enSlug = languageLink('en')
     const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/master/src/pages/${enSlug.slice(
       1,
       enSlug.length - 1
-    )}/index${lang === 'en' ? '' : '.' + lang}.md`;
+    )}/index${lang === 'en' ? '' : '.' + lang}.md`
     const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
       `https://overreacted.io${enSlug}`
-    )}`;
+    )}`
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -241,11 +241,11 @@ class BlogPostTemplate extends React.Component {
           </nav>
         </aside>
       </Layout>
-    );
+    )
   }
 }
 
-export default BlogPostTemplate;
+export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -270,4 +270,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 function Panel({ children, style = {} }) {
   return (
@@ -15,7 +15,7 @@ function Panel({ children, style = {} }) {
     >
       {children}
     </p>
-  );
+  )
 }
 
-export default Panel;
+export default Panel

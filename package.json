@@ -45,7 +45,6 @@
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.11.1",
     "gatsby": "^2.0.76",
-    "gh-pages": "^1.2.0",
     "prettier": "^1.14.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"
@@ -56,12 +55,7 @@
     "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "format": "prettier --write '{gatsby-*.js,src/**/*.{js,jsx,json,css}}'",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "build": "rm -rf public && rm -rf .cache && gatsby build",
-    "now-build": "gatsby build",
-    "deploy": "yarn build && cp now.json public/ && cd public && now alias $(now) overreacted.io",
-    "dry": "yarn build && cp now.json public/ && cd public && now"
+    "start": "npm run develop"
   },
   "husky": {
     "hooks": {
