@@ -16,8 +16,6 @@ import {
   loadFontsForCode,
 } from '../utils/i18n'
 
-const GITHUB_USERNAME = 'gaearon'
-const GITHUB_REPO_NAME = 'overreacted.io'
 const systemFont = `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif`
@@ -94,6 +92,7 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const { repoUrl, siteUrl } = get(this.props, 'data.site.siteMetadata')
     let {
       previous,
       next,
@@ -126,12 +125,12 @@ class BlogPostTemplate extends React.Component {
     // TODO: this curried function is annoying
     const languageLink = createLanguageLink(slug, lang)
     const enSlug = languageLink('en')
-    const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/master/src/pages/${enSlug.slice(
+    const editUrl = `${repoUrl}/edit/master/src/pages/${enSlug.slice(
       1,
       enSlug.length - 1
     )}/index${lang === 'en' ? '' : '.' + lang}.md`
-    const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
-      `https://overreacted.io${enSlug}`
+    const discussUrl = `https://twitter.com/search?q=${encodeURIComponent(
+      `${siteUrl}${enSlug}`
     )}`
 
     return (
@@ -205,7 +204,7 @@ class BlogPostTemplate extends React.Component {
               }}
               to={'/'}
             >
-              Overreacted
+              {siteTitle}
             </Link>
           </h3>
           <Bio />
@@ -251,6 +250,8 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
+        repoUrl
+        siteUrl
         title
         author
       }

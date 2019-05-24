@@ -4,7 +4,7 @@ import { formatPostDate, formatReadingTime } from '../utils/helpers'
 import Bio from '../components/Bio'
 import Footer from '../components/Footer'
 import Layout from '../components/Layout'
-import Panel from '../components/Panel'
+// import Panel from '../components/Panel'
 import React from 'react'
 import SEO from '../components/SEO'
 import get from 'lodash/get'
@@ -24,7 +24,7 @@ class BlogIndexTemplate extends React.Component {
           <Bio />
         </aside>
         <main>
-          {langKey !== 'en' && langKey !== 'ru' && (
+          {/* {langKey !== 'en' && langKey !== 'ru' && (
             <Panel>
               These articles have been{' '}
               <a
@@ -36,7 +36,7 @@ class BlogIndexTemplate extends React.Component {
               </a>
               .
             </Panel>
-          )}
+          )} */}
 
           {posts.map(({ node }) => {
             const title = get(node, 'frontmatter.title') || node.fields.slug

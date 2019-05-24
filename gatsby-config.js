@@ -15,6 +15,12 @@ function validate(
 module.exports = config => {
   validate(
     config,
+    'newsletterSubscribeUrl',
+    `https://app.convertkit.com/forms/812047/subscriptions`,
+    `No  \`newsletterSubscribeUrl\` provided. Try using ConvertKit!`
+  )
+  validate(
+    config,
     'trackingId',
     `UA-YOURNUMBERHERE-1`,
     `No Google Analytics \`trackingId\` provided. Set one up!`
@@ -48,9 +54,12 @@ module.exports = config => {
       title: 'gatsby-theme-dev-blog',
       author: 'Dev Abramov',
       description: 'TODO: Override description in siteMetadata',
-      siteUrl: 'https://gatsbyjs.org',
+      siteUrl: 'https://gatsby-theme-dev-blog.netlify.com', // no trailing slash!
+      repoUrl: 'https://github.com/sw-yx/gatsby-theme-dev-blog',
+      newsletterSubscribeUrl: config.newsletterSubscribeUrl,
       social: {
         twitter: '@gatsbyjs',
+        github: 'gatsbyjs',
       },
     },
     pathPrefix: '/',

@@ -60,7 +60,7 @@ require('gatsby-remark-autolink-headers/gatsby-browser').shouldUpdateScroll = fu
   prevRouterProps,
   routerProps,
 }) {
-  const { pathname, hash } = routerProps.location
+  const { pathname } = routerProps.location
   if (prevRouterProps) {
     const {
       location: { pathname: oldPathname },
