@@ -13,7 +13,7 @@ import { rhythm } from '../utils/typography'
 class BlogIndexTemplate extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const langKey = this.props.pageContext.langKey
+    const langKey = this.props.pageContext.langKey || 'en'
 
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
 
@@ -79,7 +79,8 @@ class BlogIndexTemplate extends React.Component {
 export default BlogIndexTemplate
 
 export const pageQuery = graphql`
-  query($langKey: String!) {
+  # query($langKey: String!) {
+  query {
     site {
       siteMetadata {
         title
@@ -87,14 +88,14 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fields: { langKey: { eq: $langKey } } }
+      # filter: { fields: { langKey: { eq: $langKey } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
           fields {
             slug
-            langKey
+            # langKey
           }
           timeToRead
           frontmatter {

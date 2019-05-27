@@ -55,7 +55,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
+    "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "format": "prettier --write '{gatsby-*.js,src/**/*.{js,jsx,json,css}}'",
     "start": "npm run develop",
     "version": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md",
@@ -71,5 +71,17 @@
       "yarn format",
       "git add"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sw-yx/gatsby-theme-dev-blog.git"
+  },
+  "keywords": [
+    "gatsby",
+    "react",
+    "gatsby",
+    "theme",
+    "netlify"
+  ]
 }

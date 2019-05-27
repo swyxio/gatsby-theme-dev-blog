@@ -15,14 +15,24 @@ module.exports = {
     title: `Gatsby Theme Dev Blog`,
     description: `Write your dev blog with no graphql!`,
     author: `@swyx`,
-    siteUrl: "https://overreacted.io",
+    siteUrl: 'https://overreacted.io',
     social: {
-      twitter: "@swyx",
+      twitter: '@swyx',
     },
   },
   __experimentalThemes: [
     {
-      resolve: "gatsby-theme-dev-blog",
+      resolve: 'gatsby-theme-dev-blog',
+      // // example options below
+      // options: {
+      //   gatsbyPluginPageCreatorPath: require('path').join(__dirname, 'src/content'),
+      //   trackingId: "UA-YOURNUMBERHERE-1",
+      //   RSSFeedTitle: `gatsby-theme-dev-blog RSS Feed`,
+      //   BlogName: `gatsby-theme-dev-blog demo - a Demo of Gatsby Themes`,
+      //   BlogShortName: `gatsby-theme-dev-blog Demo`,
+      //   manifestIcon: require('path').resolve("./src/assets/sun.png"),
+      //   newsletterSubscribeUrl: "https://www.netlify.com",
+      // },
     },
   ],
 }
@@ -33,7 +43,7 @@ To blog, make a new folder in `src/pages` with your blog title, and blog under `
 ```md
 ---
 title: Hello world
-date: "2019-02-02"
+date: '2019-02-02'
 spoiler: hello this is a dev blog
 ---
 

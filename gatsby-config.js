@@ -15,6 +15,15 @@ function validate(
 module.exports = config => {
   validate(
     config,
+    'devBlogPath',
+    path.resolve('./src/pages'), // consumer
+    // `${__dirname}/src/pages`, // theme
+    `No  \`devBlogPath\` provided. Using ./src/pages`
+  )
+  // console.log('devblogpath', config.devBlogPath)
+  // console.log('devblogpath', `${__dirname}/src/pages`)
+  validate(
+    config,
     'newsletterSubscribeUrl',
     `https://app.convertkit.com/forms/812047/subscriptions`,
     `No  \`newsletterSubscribeUrl\` provided. Try using ConvertKit!`
@@ -67,7 +76,7 @@ module.exports = config => {
       {
         resolve: `gatsby-source-filesystem`,
         options: {
-          path: path.resolve(`./src/pages`),
+          path: config['devBlogPath'],
           name: 'pages',
         },
       },
@@ -160,7 +169,7 @@ module.exports = config => {
                 allMarkdownRemark(
                   limit: 1000,
                   sort: { order: DESC, fields: [frontmatter___date] }
-                  filter: {fields: { langKey: {eq: "en"}}}
+                  # filter: {fields: { langKey: {eq: "en"}}}
                 ) {
                   edges {
                     node {
@@ -205,18 +214,18 @@ module.exports = config => {
           pathToConfigModule: require.resolve('./src/utils/typography'),
         },
       },
-      {
-        resolve: 'gatsby-plugin-i18n',
-        options: {
-          langKeyDefault: 'en',
-          useLangKeyLayout: false,
-        },
-      },
+      // {
+      //   resolve: 'gatsby-plugin-i18n',
+      //   options: {
+      //     langKeyDefault: 'en',
+      //     useLangKeyLayout: false,
+      //   },
+      // },
       `gatsby-plugin-catch-links`,
       {
         resolve: `gatsby-plugin-page-creator`,
         options: {
-          path: path.join(__dirname, `src`, `pages`),
+          path: config['devBlogPath'],
         },
       },
     ],
