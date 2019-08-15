@@ -1,0 +1,35 @@
+{
+  "name": "gatsby-theme-dev-blog-demo",
+  "private": true,
+  "description": "demo of gatsby-theme-dev-blog",
+  "version": "0.1.0",
+  "author": "swyx <dont-email@me.com>",
+  "dependencies": {
+    "gatsby": "^2.5.0",
+    "gatsby-theme-dev-blog": "latest",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "prettier": "^1.17.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sw-yx/gatsby-theme-dev-blog-demo"
+  },
+  "bugs": {
+    "url": "https://github.com/sw-yx/gatsby-theme-dev-blog-demo/issues"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "example",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "gatsby develop"
+  },
+  "main": "gatsby-config.js",
+  "dependencies": {
+    "gatsby": "latest",
+    "gatsby-plugin-manifest": "^2.2.5",
+    "gatsby-theme-dev-blog": "*"
+  }
+}

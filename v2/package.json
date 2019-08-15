@@ -1,0 +1,17 @@
+{
+  "name": "gatsby-theme-dev-blog-workspace",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn workspace demo build",
+    "start": "yarn workspace demo start",
+    "start:derrick": "yarn workspace demo-derrick start"
+  },
+  "workspaces": [
+    "gatsby-theme-dev-blog",
+    "demo",
+    "demo-derrick"
+  ]
+}
