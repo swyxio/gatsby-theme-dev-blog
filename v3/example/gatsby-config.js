@@ -1,21 +1,24 @@
-const config = require('./config/website')
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+const pathPrefix = '/' // Prefix for all links. If you deploy your site to example.com/blog your pathPrefix should be "blog"
+const siteTitle = 'My dev blog title' // Navigation and Site Title
+const siteUrl = 'https://your-site.io' // Domain of your site. No trailing slash!
+const siteLogo = 'images/logo.png' // Used for SEO and manifest, path to your image you placed in the 'static' folder
+const siteDescription = 'This is where they post things!'
 module.exports = {
-  pathPrefix: config.pathPrefix,
+  pathPrefix,
   siteMetadata: {
-    siteUrl: config.siteUrl + pathPrefix,
-    title: config.siteTitle,
-    description: config.siteDescription,
+    siteUrl: siteUrl + pathPrefix,
+    title: siteTitle,
+    description: siteDescription,
     keywords: ['Video Blogger'],
-    canonicalUrl: config.siteUrl,
-    twitterUrl: config.twitterUrl,
-    twitterHandle: config.twitterHandle,
-    fbAppID: config.fbAppID,
-    githubUrl: config.githubUrl,
-    githubHandle: config.githubHandle,
-    image: config.siteLogo,
+    canonicalUrl: siteUrl,
+    twitterUrl: 'https://twitter.com/swyx/',
+    twitterHandle: '@swyx',
+    fbAppID: undefined,
+    githubUrl: 'https://github.com/sw-yx',
+    githubHandle: 'sw-yx',
+    image: siteLogo,
     author: {
-      name: config.author,
+      name: 'swyx', // Author for schemaORGJSONLD
       minibio: `
         <strong>egghead</strong> is the premier place on the internet for 
         experienced developers to enhance their skills and stay current
@@ -23,9 +26,9 @@ module.exports = {
       `,
     },
     organization: {
-      name: config.organization,
-      url: config.siteUrl,
-      logo: config.siteLogo,
+      name: 'swyx.io LLC',
+      url: siteUrl,
+      logo: siteLogo,
     },
   },
   plugins: [
@@ -35,12 +38,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: config.siteTitle,
-        short_name: config.siteTitleShort,
-        description: config.siteDescription,
-        start_url: config.pathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
+        name: siteTitle,
+        short_name: siteTitle, // or offer a shortname if you wish
+        description: siteDescription,
+        start_url: pathPrefix,
+        background_color: '#2b2e3c', // Manifest and Progress color
+        theme_color: '#5348FF', // Manifest and Progress color
         display: 'standalone',
         icons: [
           {
