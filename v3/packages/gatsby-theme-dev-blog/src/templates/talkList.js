@@ -8,27 +8,16 @@ import Layout from '../components/Layout'
 import Link from '../components/Link'
 import { bpMaxSM, bpMaxMD } from '../lib/breakpoints'
 
-const Blog = ({
-  data: { site, allMdx },
-  pageContext: { pagination, categories },
-}) => {
+const Talks = ({ data: { site }, pageContext: { pagination, categories } }) => {
   const { page, nextPagePath, previousPagePath } = pagination
-
   const posts = page
-    .map(id =>
-      allMdx.edges.find(
-        edge =>
-          edge.node.id === id &&
-          edge.node.parent.sourceInstanceName !== 'pages',
-      ),
-    )
-    .filter(post => post !== undefined)
+  console.log({ posts })
 
   return (
     <Layout site={site}>
       <SEO />
       <Container noVerticalPadding>
-        {posts.map(({ node: post }) => (
+        {posts.map(post => (
           <div
             key={post.id}
             css={css`
@@ -98,7 +87,7 @@ const Blog = ({
               to={`/${post.fields.slug}`}
               aria-label={`view "${post.frontmatter.title}" article`}
             >
-              Read Article →
+              See More →
             </Link>
           </div>
         ))}
@@ -124,43 +113,43 @@ const Blog = ({
   )
 }
 
-export default Blog
+export default Talks
 
 export const pageQuery = graphql`
   query {
     site {
       ...site
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt(pruneLength: 300)
-          id
-          fields {
-            title
-            slug
-            date
-          }
-          parent {
-            ... on File {
-              sourceInstanceName
-            }
-          }
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-            banner {
-              childImageSharp {
-                fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
-              }
-            }
-            slug
-            keywords
-          }
-        }
-      }
-    }
+    # allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    #   edges {
+    #     node {
+    #       excerpt(pruneLength: 300)
+    #       id
+    #       fields {
+    #         title
+    #         slug
+    #         date
+    #       }
+    #       parent {
+    #         ... on File {
+    #           sourceInstanceName
+    #         }
+    #       }
+    #       frontmatter {
+    #         title
+    #         date(formatString: "MMMM DD, YYYY")
+    #         banner {
+    #           childImageSharp {
+    #             fluid(maxWidth: 600) {
+    #               ...GatsbyImageSharpFluid_withWebp_tracedSVG
+    #             }
+    #           }
+    #         }
+    #         slug
+    #         keywords
+    #       }
+    #     }
+    #   }
+    # }
   }
 `

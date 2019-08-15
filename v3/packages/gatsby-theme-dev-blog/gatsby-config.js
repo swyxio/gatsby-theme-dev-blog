@@ -4,7 +4,11 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-module.exports = ({ contentBlog = 'content/blog' }) => ({
+module.exports = ({
+  contentPath = 'content/writing',
+  draftsPath = 'content/drafts',
+  talksPath = 'content/talks',
+}) => ({
   plugins: [
     {
       resolve: `gatsby-plugin-page-creator`,
@@ -15,8 +19,22 @@ module.exports = ({ contentBlog = 'content/blog' }) => ({
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: contentBlog,
-        name: contentBlog,
+        path: contentPath,
+        name: contentPath,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: talksPath,
+        name: talksPath,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: draftsPath,
+        name: draftsPath,
       },
     },
     {

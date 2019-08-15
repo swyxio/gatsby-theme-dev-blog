@@ -105,7 +105,7 @@ const getGlobalStyles = theme => {
       }
     }
     pre {
-      background-color: #061526 !important;
+      background-color: ${theme.colors.secondary} !important;
       border-radius: 4px;
       font-size: 16px;
       padding: 10px;

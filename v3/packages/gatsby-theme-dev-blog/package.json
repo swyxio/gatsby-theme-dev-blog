@@ -58,12 +58,18 @@
     "yup": "^0.27.0"
   },
   "devDependencies": {
+    "auto-changelog": "^1.15.0",
     "babel-preset-gatsby": "^0.2.8",
+    "gh-release": "^3.5.0",
     "prettier": "1.18.2"
   },
   "keywords": [
     "gatsby"
   ],
+  "scripts": {
+    "version": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md",
+    "prepublishOnly": "git push && git push --tags && gh-release"
+  },
   "license": "MIT",
   "main": "gatsby-config.js"
 }

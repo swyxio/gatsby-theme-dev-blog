@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "example": "yarn workspace example",
-    "start": "yarn example start",
+    "start": "yarn example cleanstart",
     "theme": "yarn workspace gatsby-theme-dev-blog"
   },
   "workspaces": [

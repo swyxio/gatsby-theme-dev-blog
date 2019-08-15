@@ -30,8 +30,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-theme-egghead-blog`,
-      options: {contentBlog: 'content/posts'},
+      resolve: `gatsby-theme-dev-blog`,
     },
     {
       resolve: 'gatsby-plugin-manifest',

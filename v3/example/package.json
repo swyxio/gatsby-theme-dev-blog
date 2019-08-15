@@ -3,7 +3,8 @@
   "name": "example",
   "version": "1.0.0",
   "scripts": {
-    "start": "gatsby develop"
+    "start": "gatsby develop",
+    "cleanstart": "gatsby clean && gatsby develop"
   },
   "main": "gatsby-config.js",
   "dependencies": {
