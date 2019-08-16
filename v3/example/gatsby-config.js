@@ -13,7 +13,7 @@ module.exports = {
     canonicalUrl: siteUrl,
     twitterUrl: 'https://twitter.com/swyx/',
     twitterHandle: '@swyx',
-    fbAppID: undefined,
+    fbAppID: '12345',
     githubUrl: 'https://github.com/sw-yx',
     githubHandle: 'sw-yx',
     image: siteLogo,

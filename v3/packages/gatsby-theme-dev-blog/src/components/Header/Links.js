@@ -7,14 +7,22 @@ export default () => {
   const theme = useTheme()
   return (
     <React.Fragment>
-      <Link to="#" activeClassName="active" aria-label="View blog page">
-        Blog
+      <Link
+        to="/writing"
+        activeClassName="active"
+        aria-label="View writing page"
+      >
+        Writing
+      </Link>
+      <Link
+        to="/talks"
+        activeClassName="active"
+        aria-label="View speaking page"
+      >
+        Speaking
       </Link>
       <Link to="#" activeClassName="active" aria-label="View blog page">
         About
-      </Link>
-      <Link to="#" activeClassName="active" aria-label="View blog page">
-        Contact
       </Link>
 
       <ThemeToggler
