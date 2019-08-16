@@ -7,7 +7,6 @@ export default ({ data: { site } }) => {
   const {
     siteMetadata: { author },
   } = site
-  console.log({ author, site })
   return (
     <Layout site={site} noFooter>
       <Container>

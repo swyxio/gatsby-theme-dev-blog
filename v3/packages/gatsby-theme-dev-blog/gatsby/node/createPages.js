@@ -61,10 +61,10 @@ module.exports = (
       // edge => edge.node.parent.sourceInstanceName === contentPath,
       edge => {
         // console.log('sin', talksPath, edge.node.parent.sourceInstanceName)
-        return (
-          edge.node.parent.sourceInstanceName !==
-          'gatsby-theme-dev-blog:talksPath'
-        )
+        return [
+          'gatsby-theme-dev-blog:contentPath',
+          'gatsby-theme-dev-blog:draftsPath',
+        ].includes(edge.node.parent.sourceInstanceName)
       },
     )
     console.log('Number of posts: ', postEdges.length)

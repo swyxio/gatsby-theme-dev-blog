@@ -31,8 +31,11 @@ const PostSubmissionMessage = ({ response }) => {
 }
 
 class SignUp extends React.Component {
-  state = {
-    submitted: false,
+  constructor(props) {
+    super(props)
+    this.state = {
+      submitted: false,
+    }
   }
 
   async handleSubmit(values) {
@@ -187,8 +190,9 @@ class SignUp extends React.Component {
                   </button>
                 </Form>
               )}
-              {submitted &&
-                !isSubmitting && <PostSubmissionMessage response={response} />}
+              {submitted && !isSubmitting && (
+                <PostSubmissionMessage response={response} />
+              )}
               {errorMessage && <div>{errorMessage}</div>}
             </>
           )}

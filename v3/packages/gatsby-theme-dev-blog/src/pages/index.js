@@ -24,18 +24,40 @@ export default function Index({ data: { site, allMdx } }) {
           padding-bottom: 0;
         `}
       >
-        {allMdx.edges.map(({ node }) => {
-          if (
-            node.parent.sourceInstanceName === 'gatsby-theme-dev-blog:talksPath'
-          ) {
-            return <Talk post={node} key={node.id} theme={theme} />
-          } else {
-            return <Article post={node} key={node.id} theme={theme} />
-          }
-        })}
-        <Link to="/blog" aria-label="Visit blog page">
-          View all articles
-        </Link>
+        {allMdx.edges
+          .filter(({ node }) =>
+            [
+              'gatsby-theme-dev-blog:contentPath',
+              'gatsby-theme-dev-blog:talksPath',
+              'gatsby-theme-dev-blog:draftsPath',
+            ].includes(node.parent.sourceInstanceName),
+          )
+          .map(({ node }) => {
+            if (
+              node.parent.sourceInstanceName ===
+              'gatsby-theme-dev-blog:talksPath'
+            ) {
+              return <Talk post={node} key={node.id} theme={theme} />
+            } else {
+              return <Article post={node} key={node.id} theme={theme} />
+            }
+          })}
+
+        <hr />
+        <div
+          style={{
+            // borderTop: '1px solid gray',
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Link to="/writing" aria-label="Visit blog page">
+            View all articles
+          </Link>
+          <Link to="/talks" aria-label="Visit talk page">
+            View all talks
+          </Link>
+        </div>
         <hr />
       </Container>
     </Layout>
@@ -120,7 +142,7 @@ export const pageQuery = graphql`
       }
     }
     allMdx(
-      limit: 5
+      limit: 8
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { ne: false } } }
     ) {
