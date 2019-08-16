@@ -97,7 +97,7 @@ function Talk({ post, theme }) {
   )
 }
 function Article({ post, theme }) {
-  const articlelink = 'writing/post.frontmatter.slug'
+  const articlelink = 'writing/' + post.frontmatter.slug
   return (
     <div
       css={css`
