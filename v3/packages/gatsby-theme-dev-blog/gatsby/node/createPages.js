@@ -5,7 +5,10 @@ const path = require('path')
 const { createPosts, createPaginatedPosts } = require('./createPosts')
 const { createTalks, createPaginatedTalks } = require('./createTalks')
 
-module.exports = ({ actions, graphql }, themeOptions) =>
+module.exports = (
+  { actions, graphql },
+  themeOptions, // dont need for now but its there if you want it
+) =>
   graphql(`
     query {
       allMdx(
@@ -43,11 +46,6 @@ module.exports = ({ actions, graphql }, themeOptions) =>
       }
     }
   `).then(({ data, errors }) => {
-    const {
-      contentPath = 'content/writing',
-      draftsPath = 'content/drafts',
-      talksPath = 'content/talks',
-    } = themeOptions
     if (errors) {
       return Promise.reject(errors)
     }
@@ -63,7 +61,10 @@ module.exports = ({ actions, graphql }, themeOptions) =>
       // edge => edge.node.parent.sourceInstanceName === contentPath,
       edge => {
         // console.log('sin', talksPath, edge.node.parent.sourceInstanceName)
-        return edge.node.parent.sourceInstanceName !== talksPath
+        return (
+          edge.node.parent.sourceInstanceName !==
+          'gatsby-theme-dev-blog:talksPath'
+        )
       },
     )
     console.log('Number of posts: ', postEdges.length)
@@ -74,7 +75,10 @@ module.exports = ({ actions, graphql }, themeOptions) =>
 
     /** talks */
     const talkEdges = edges.filter(edge => {
-      return edge.node.parent.sourceInstanceName === talksPath
+      return (
+        edge.node.parent.sourceInstanceName ===
+        'gatsby-theme-dev-blog:talksPath'
+      )
     })
     console.log('Number of talks: ', talkEdges.length)
     createTalks(actions, talkEdges)

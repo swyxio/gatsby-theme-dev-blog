@@ -24,46 +24,90 @@ export default function Index({ data: { site, allMdx } }) {
           padding-bottom: 0;
         `}
       >
-        {allMdx.edges.map(({ node: post }) => (
-          <div
-            key={post.id}
-            css={css`
-              margin-bottom: 40px;
-            `}
-          >
-            <h2
-              css={css({
-                marginBottom: rhythm(0.3),
-                transition: 'all 150ms ease',
-                ':hover': {
-                  color: theme.colors.primary,
-                },
-              })}
-            >
-              <Link
-                to={post.frontmatter.slug}
-                aria-label={`View ${post.frontmatter.title}`}
-              >
-                {post.frontmatter.title}
-              </Link>
-            </h2>
-            <Description>
-              {post.excerpt}{' '}
-              <Link
-                to={post.frontmatter.slug}
-                aria-label={`View ${post.frontmatter.title}`}
-              >
-                Read Article →
-              </Link>
-            </Description>
-          </div>
-        ))}
+        {allMdx.edges.map(({ node }) => {
+          if (
+            node.parent.sourceInstanceName === 'gatsby-theme-dev-blog:talksPath'
+          ) {
+            return <Talk post={node} key={node.id} theme={theme} />
+          } else {
+            return <Article post={node} key={node.id} theme={theme} />
+          }
+        })}
         <Link to="/blog" aria-label="Visit blog page">
           View all articles
         </Link>
         <hr />
       </Container>
     </Layout>
+  )
+}
+
+function Talk({ post, theme }) {
+  const talklink = 'talks/' + post.frontmatter.slug
+  return (
+    <div
+      css={css`
+        margin-bottom: 40px;
+      `}
+    >
+      <h2
+        css={css({
+          marginBottom: rhythm(0.3),
+          transition: 'all 150ms ease',
+          color: theme.colors.primary,
+          // ':hover': {
+          //   color: theme.colors.text,
+          // },
+        })}
+      >
+        📺{' '}
+        <Link to={talklink} aria-label={`View ${post.frontmatter.title}`}>
+          {post.frontmatter.title}
+        </Link>
+      </h2>
+      <Description>
+        {post.excerpt}{' '}
+        <Link to={talklink} aria-label={`View ${post.frontmatter.title}`}>
+          Watch Talk →
+        </Link>
+      </Description>
+    </div>
+  )
+}
+function Article({ post, theme }) {
+  return (
+    <div
+      css={css`
+        margin-bottom: 40px;
+      `}
+    >
+      <h2
+        css={css({
+          marginBottom: rhythm(0.3),
+          transition: 'all 150ms ease',
+          ':hover': {
+            color: theme.colors.primary,
+          },
+        })}
+      >
+        ✍️{' '}
+        <Link
+          to={post.frontmatter.slug}
+          aria-label={`View ${post.frontmatter.title}`}
+        >
+          {post.frontmatter.title}
+        </Link>
+      </h2>
+      <Description>
+        {post.excerpt}{' '}
+        <Link
+          to={post.frontmatter.slug}
+          aria-label={`View ${post.frontmatter.title}`}
+        >
+          Read Article →
+        </Link>
+      </Description>
+    </div>
   )
 }
 

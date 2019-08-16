@@ -4,21 +4,17 @@ const _ = require('lodash')
 
 module.exports = ({ node, getNode, actions }, themeOptions) => {
   const { createNodeField } = actions
-  const {
-    contentPath = 'content/writing',
-    draftsPath = 'content/drafts',
-    talksPath = 'content/talks',
-  } = themeOptions
-
   if (node.internal.type === `Mdx`) {
     const parent = getNode(node.parent)
     const titleSlugged = _.join(_.drop(parent.name.split('-'), 3), '-')
 
     let slug = node.frontmatter.slug || titleSlugged
-    if (parent.sourceInstanceName === contentPath) slug = 'writing/' + slug
-    else if (parent.sourceInstanceName === draftsPath)
+    if (parent.sourceInstanceName === 'gatsby-theme-dev-blog:contentPath')
+      slug = 'writing/' + slug
+    else if (parent.sourceInstanceName === 'gatsby-theme-dev-blog:draftsPath')
       slug = 'writing/draft/' + slug
-    else if (parent.sourceInstanceName === talksPath) slug = 'talks/' + slug
+    else if (parent.sourceInstanceName === 'gatsby-theme-dev-blog:talksPath')
+      slug = 'talks/' + slug
 
     createNodeField({
       name: 'id',

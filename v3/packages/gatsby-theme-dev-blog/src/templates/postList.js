@@ -120,36 +120,5 @@ export const pageQuery = graphql`
     site {
       ...site
     }
-    # allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
-    #   edges {
-    #     node {
-    #       excerpt(pruneLength: 300)
-    #       id
-    #       fields {
-    #         title
-    #         slug
-    #         date
-    #       }
-    #       parent {
-    #         ... on File {
-    #           sourceInstanceName
-    #         }
-    #       }
-    #       frontmatter {
-    #         title
-    #         date(formatString: "MMMM DD, YYYY")
-    #         banner {
-    #           childImageSharp {
-    #             fluid(maxWidth: 600) {
-    #               ...GatsbyImageSharpFluid_withWebp_tracedSVG
-    #             }
-    #           }
-    #         }
-    #         slug
-    #         keywords
-    #       }
-    #     }
-    #   }
-    # }
   }
 `

@@ -20,21 +20,21 @@ module.exports = ({
       resolve: 'gatsby-source-filesystem',
       options: {
         path: contentPath,
-        name: contentPath,
+        name: 'gatsby-theme-dev-blog:contentPath', // added to hopefully increase greppability
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: talksPath,
-        name: talksPath,
+        name: 'gatsby-theme-dev-blog:talksPath', // added to hopefully increase greppability
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: draftsPath,
-        name: draftsPath,
+        name: 'gatsby-theme-dev-blog:draftsPath', // added to hopefully increase greppability
       },
     },
     {
