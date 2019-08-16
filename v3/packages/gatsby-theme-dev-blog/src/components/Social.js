@@ -48,7 +48,6 @@ const getConfig = ({ githubUrl, twitterUrl }) => {
     case Boolean(githubUrl):
       return config.github
     case Boolean(twitterUrl):
-      console.log('here')
       return config.twitter
     default:
       return {

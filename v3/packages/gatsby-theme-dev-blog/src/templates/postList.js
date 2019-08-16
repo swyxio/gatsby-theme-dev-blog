@@ -11,7 +11,6 @@ import { bpMaxSM, bpMaxMD } from '../lib/breakpoints'
 const Blog = ({ data: { site }, pageContext: { pagination, categories } }) => {
   const { page, nextPagePath, previousPagePath } = pagination
   const posts = page
-  console.log({ posts })
 
   return (
     <Layout site={site}>

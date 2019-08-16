@@ -57,16 +57,12 @@ module.exports = (
     const { edges } = data.allMdx
 
     /** writing */
-    const postEdges = edges.filter(
-      // edge => edge.node.parent.sourceInstanceName === contentPath,
-      edge => {
-        // console.log('sin', talksPath, edge.node.parent.sourceInstanceName)
-        return [
-          'gatsby-theme-dev-blog:contentPath',
-          'gatsby-theme-dev-blog:draftsPath',
-        ].includes(edge.node.parent.sourceInstanceName)
-      },
-    )
+    const postEdges = edges.filter(edge => {
+      return [
+        'gatsby-theme-dev-blog:contentPath',
+        'gatsby-theme-dev-blog:draftsPath',
+      ].includes(edge.node.parent.sourceInstanceName)
+    })
     console.log('Number of posts: ', postEdges.length)
     createPosts(actions, postEdges)
     createPaginatedPosts(actions, postEdges, '/writing', {
