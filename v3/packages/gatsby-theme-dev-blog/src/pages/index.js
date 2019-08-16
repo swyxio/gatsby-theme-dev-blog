@@ -90,13 +90,14 @@ function Talk({ post, theme }) {
       <Description>
         {post.excerpt}{' '}
         <Link to={talklink} aria-label={`View ${post.frontmatter.title}`}>
-          Watch Talk →
+          Watch →
         </Link>
       </Description>
     </div>
   )
 }
 function Article({ post, theme }) {
+  const articlelink = 'writing/post.frontmatter.slug'
   return (
     <div
       css={css`
@@ -113,20 +114,14 @@ function Article({ post, theme }) {
         })}
       >
         ✍️{' '}
-        <Link
-          to={post.frontmatter.slug}
-          aria-label={`View ${post.frontmatter.title}`}
-        >
+        <Link to={articlelink} aria-label={`View ${post.frontmatter.title}`}>
           {post.frontmatter.title}
         </Link>
       </h2>
       <Description>
         {post.excerpt}{' '}
-        <Link
-          to={post.frontmatter.slug}
-          aria-label={`View ${post.frontmatter.title}`}
-        >
-          Read Article →
+        <Link to={articlelink} aria-label={`View ${post.frontmatter.title}`}>
+          Read →
         </Link>
       </Description>
     </div>
