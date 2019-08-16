@@ -130,7 +130,7 @@ export default function Post({
 }
 
 function Video({ video, title }) {
-  console.log({ video }, video.startsWith('https://www.youtube.com/watch'))
+  if (!video) return null
   if (!video.startsWith('https://www.youtube.com/watch')) return null
   const videoId = new URL(video).searchParams.get('v')
   return (
