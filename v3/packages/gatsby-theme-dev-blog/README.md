@@ -2,6 +2,13 @@
 
 based on https://github.com/eggheadio/gatsby-theme-egghead-blog
 
+dont forget to customize:
+
+- pages
+  - messages
+  - subscribe
+  - about
+
 ## Features
 
 - MDX: JavaScript/React in Markdown

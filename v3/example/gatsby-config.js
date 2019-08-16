@@ -20,10 +20,9 @@ module.exports = {
     author: {
       name: 'swyx', // Author for schemaORGJSONLD
       minibio: `
-        <strong>egghead</strong> is the premier place on the internet for 
-        experienced developers to enhance their skills and stay current
-        in the fast-faced field of web development.
-      `,
+        <code>gatsby-theme-dev-blog</code> is the premier gatsby theme for dev blogs
+        personal sites are awesome tools for learning in public.
+      `, // will be set via dangerouslySetInnerHTML in pages/about
     },
     organization: {
       name: 'swyx.io LLC',

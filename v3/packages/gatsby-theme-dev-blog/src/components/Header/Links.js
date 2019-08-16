@@ -21,7 +21,7 @@ export default () => {
       >
         Speaking
       </Link>
-      <Link to="#" activeClassName="active" aria-label="View blog page">
+      <Link to="/about" activeClassName="active" aria-label="View blog page">
         About
       </Link>
 

@@ -31,7 +31,6 @@ module.exports = ({ actions, graphql }, themeOptions) =>
               title
               date(formatString: "MMMM DD, YYYY")
               slug
-              keywords
               venues
               topic
               url
