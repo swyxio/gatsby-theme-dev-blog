@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-dev-blog",
   "description": "This is a theme for dev blogs",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "author": "swyx <swyx@dontemail.me> (https://swyx.io)",
   "repository": "https://github.com/sw-yx/gatsby-theme-dev-blog",
   "dependencies": {
