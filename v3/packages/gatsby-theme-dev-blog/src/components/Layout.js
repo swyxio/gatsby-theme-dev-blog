@@ -11,6 +11,7 @@ import Header from './Header/'
 import reset from '../lib/reset'
 import { fonts } from '../lib/typography'
 import Footer from '../components/Footer'
+// import './layout.css'
 
 const getGlobalStyles = theme => {
   return css`
@@ -90,6 +91,44 @@ const getGlobalStyles = theme => {
       background: none !important;
       box-shadow: 0;
     }
+
+    /* https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/?=gatsby-remark-prismjs#optional-add-line-numbering */
+
+    .gatsby-highlight-code-line {
+      background-color: #272852;
+      display: block;
+      margin-right: -1em;
+      margin-left: -1em;
+      padding-right: 1em;
+      padding-left: 0.75em;
+      border-left: 0.25em solid #f99;
+    }
+
+    /* Adjust the position of the line numbers */
+    .gatsby-highlight pre[class*='language-'].line-numbers {
+      padding-left: 2.8em;
+    }
+
+    /**
+    * If you only want to use line numbering
+    */
+
+    .gatsby-highlight {
+      background-color: #fdf6e3;
+      border-radius: 0.3em;
+      margin: 0.5em 0;
+      padding: 1em;
+      overflow: auto;
+    }
+
+    .gatsby-highlight pre[class*='language-'].line-numbers {
+      padding: 0;
+      padding-left: 2.8em;
+      overflow: initial;
+    }
+
+    /** SWYX **/
+
     button {
       border-radius: 4px;
       background-color: ${theme.colors.primary};

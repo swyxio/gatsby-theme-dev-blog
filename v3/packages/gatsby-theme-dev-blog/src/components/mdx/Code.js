@@ -3,8 +3,14 @@ import theme from 'prism-react-renderer/themes/oceanicNext'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
-const Code = ({children, codeString, className = 'language-js', ...props }) => {
+const Code = ({
+  children,
+  codeString,
+  className = 'language-js',
+  ...props
+}) => {
   const language = className.replace(/language-/, '')
+  console.log({ children })
   if (props['react-live']) {
     return (
       <LiveProvider code={children.trim()} theme={theme}>

@@ -54,7 +54,9 @@ module.exports = ({
               withWebp: true,
             },
           },
-          { resolve: `gatsby-remark-numbered-footnotes` },
+          { resolve: `gatsby-remark-code-titles` },
+          { resolve: `gatsby-remark-prismjs` }, // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/?=gatsby-remark-prismjs
+          // { resolve: `gatsby-remark-numbered-footnotes` }, // definition.identifier.toUpperCase is not a function
           {
             resolve: 'gatsby-remark-external-links',
             options: {
