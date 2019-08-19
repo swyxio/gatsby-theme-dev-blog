@@ -41,12 +41,25 @@ module.exports = ({
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: ['.mdx', '.md', '.markdown'],
+        plugins: [`gatsby-remark-images`], // bug: https://github.com/gatsbyjs/gatsby/issues/15486
+        remarkPlugins: [require(`remark-slug`)],
         gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',
             options: {
               backgroundColor: '#fafafa',
               maxWidth: 1035,
+              linkImagesToOriginal: false,
+              quality: 80,
+              withWebp: true,
+            },
+          },
+          { resolve: `gatsby-remark-numbered-footnotes` },
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'noreferrer',
             },
           },
         ],
