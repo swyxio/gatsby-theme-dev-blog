@@ -86,7 +86,7 @@ const Talks = ({ data: { site }, pageContext: { pagination, categories } }) => {
               to={`/${post.fields.slug}`}
               aria-label={`view "${post.frontmatter.title}" article`}
             >
-              See More →
+              Watch →
             </Link>
           </div>
         ))}

@@ -56,7 +56,7 @@ module.exports = ({
           },
           { resolve: `gatsby-remark-code-titles` },
           { resolve: `gatsby-remark-prismjs` }, // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/?=gatsby-remark-prismjs
-          // { resolve: `gatsby-remark-numbered-footnotes` }, // definition.identifier.toUpperCase is not a function
+          // { resolve: `gatsby-remark-numbered-footnotes` }, // Bug: definition.identifier.toUpperCase is not a function
           {
             resolve: 'gatsby-remark-external-links',
             options: {

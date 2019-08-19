@@ -2,6 +2,8 @@
 
 based on https://github.com/eggheadio/gatsby-theme-egghead-blog
 
+This isn't very well documented right now but I will be happy to work with you on that if you want to use this theme. It heavily encodes my opinions of what dev blogs should have.
+
 dont forget to customize:
 
 - pages

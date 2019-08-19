@@ -29,6 +29,7 @@ export default function Post({
   } = mdx.frontmatter
   if (!author) author = site.siteMetadata.author.name
 
+  console.log(misc)
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
       <SEO frontmatter={mdx.frontmatter} isBlogPost />
@@ -104,6 +105,17 @@ export default function Post({
           )}
           {desc && <p>{desc}</p>}
           <Video video={video} title={title} />
+          {url && (
+            <aside
+              style={{
+                textAlign: 'center',
+                fontStyle: 'italic',
+                marginBottom: 10,
+              }}
+            >
+              External URL: <a href={url}>{url}</a>
+            </aside>
+          )}
           {Object.keys(misc).length > 1 && (
             <>
               <br />
@@ -131,8 +143,14 @@ export default function Post({
 
 function Video({ video, title }) {
   if (!video) return null
-  if (!video.startsWith('https://www.youtube.com/watch')) return null
-  const videoId = new URL(video).searchParams.get('v')
+  let videoId
+  if (video.startsWith('https://www.youtube.com/watch')) {
+    videoId = new URL(video).searchParams.get('v')
+  } else if (video.startsWith('https://youtu.be/')) {
+    videoId = video.slice(17)
+  } else {
+    return null
+  }
   return (
     <div
       style={{
