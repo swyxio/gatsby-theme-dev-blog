@@ -55,6 +55,9 @@ const getGlobalStyles = theme => {
       strong {
         font-size: 90%;
       }
+      ul {
+        font-size: 80%;
+      }
       h1 {
         font-size: 30px;
       }
