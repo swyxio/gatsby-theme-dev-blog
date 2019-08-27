@@ -4,6 +4,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const dateCutoff = new Date().toISOString() // "2019-08-27T11:06:38.221Z", recognized by the graphql filter
+
 module.exports = ({
   contentPath = 'content/writing',
   draftsPath = 'content/drafts',
@@ -103,7 +105,13 @@ module.exports = ({
               {
                 allMdx(
                   limit: 1000,
-                  filter: { frontmatter: { published: { ne: false } } }
+                  filter: {
+                    frontmatter: {
+                      published: {ne: false}, 
+                      title: {glob: "*"}  # non empty titles
+                      date: {lte: ${dateCutoff}}
+                    }
+                  }
                   sort: { order: DESC, fields: [frontmatter___date] }
                 ) {
                   edges {
