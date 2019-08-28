@@ -32,6 +32,11 @@ export default function Index({ data: { site, allMdx } }) {
               'gatsby-theme-dev-blog:draftsPath',
             ].includes(node.parent.sourceInstanceName),
           )
+          .filter(
+            ({ node }) =>
+              node.frontmatter.date && // filter out missing dates
+              new Date(node.frontmatter.date) <= new Date(), // filter out future dates
+          )
           .map(({ node }) => {
             if (
               node.parent.sourceInstanceName ===
@@ -82,7 +87,9 @@ function Talk({ post, theme }) {
           // },
         })}
       >
-        📺{' '}
+        <span role="img" aria-label="talk">
+          📺
+        </span>
         <Link to={talklink} aria-label={`View ${post.frontmatter.title}`}>
           {post.frontmatter.title}
         </Link>
@@ -113,7 +120,9 @@ function Article({ post, theme }) {
           },
         })}
       >
-        ✍️{' '}
+        <span role="img" aria-label="article">
+          ✍️
+        </span>
         <Link to={articlelink} aria-label={`View ${post.frontmatter.title}`}>
           {post.frontmatter.title}
         </Link>
@@ -139,7 +148,12 @@ export const pageQuery = graphql`
     allMdx(
       limit: 8
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { published: { ne: false } } }
+      filter: {
+        frontmatter: {
+          published: { ne: false }
+          title: { glob: "*" } # non empty titles
+        }
+      }
     ) {
       edges {
         node {

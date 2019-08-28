@@ -50,12 +50,12 @@ const getGlobalStyles = theme => {
       }
     }
     ${bpMaxSM} {
-      p {
+      /* p {
         font-size: 90%;
-      }
-      ul {
-        font-size: 80%;
-      }
+      } */
+      /* ul {
+        font-size: 90%;
+      } */
       h1 {
         font-size: 30px;
       }
