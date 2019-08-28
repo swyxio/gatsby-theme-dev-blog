@@ -29,7 +29,6 @@ export default function Post({
   } = mdx.frontmatter
   if (!author) author = site.siteMetadata.author.name
 
-  console.log(misc)
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
       <SEO frontmatter={mdx.frontmatter} isBlogPost />

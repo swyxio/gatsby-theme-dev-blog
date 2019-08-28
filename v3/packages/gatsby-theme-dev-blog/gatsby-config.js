@@ -109,7 +109,7 @@ module.exports = ({
                     frontmatter: {
                       published: {ne: false}, 
                       title: {glob: "*"}  # non empty titles
-                      date: {lte: ${dateCutoff}}
+                      date: {lte: "${dateCutoff}"}
                     }
                   }
                   sort: { order: DESC, fields: [frontmatter___date] }
