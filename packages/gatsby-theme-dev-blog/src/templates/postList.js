@@ -90,15 +90,21 @@ const Blog = ({ data: { site }, pageContext: { pagination, categories } }) => {
             </Link>
           </div>
         ))}
-        <div css={css({ marginTop: '30px' })}>
-          {nextPagePath && (
-            <Link to={nextPagePath} aria-label="View next page">
-              Next Page →
-            </Link>
-          )}
+        <div
+          css={css({
+            marginTop: '30px',
+            display: 'flex',
+            justifyContent: 'space-between',
+          })}
+        >
           {previousPagePath && (
             <Link to={previousPagePath} aria-label="View previous page">
               ← Previous Page
+            </Link>
+          )}
+          {nextPagePath && (
+            <Link to={nextPagePath} aria-label="View next page">
+              Next Page →
             </Link>
           )}
         </div>
