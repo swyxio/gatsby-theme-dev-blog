@@ -1,13 +1,11 @@
-here lie all the failed attempts i've made to make gatsby-theme-dev-blog
+# gatsby-theme-dev-blog monorepo
 
-v1 was an attempt to convert overreacted.io to GTDB. its not a workspace. abandoned to try gatsby theme blog.
+We do not host the readme for the Gatsby Theme here bc we publish from inside [/packages/gatsby-theme-dev-blog](/packages/gatsby-theme-dev-blog/README.md) and that README will be on both npm and github. please [see the README there](/packages/gatsby-theme-dev-blog/README.md)
 
-v2 was an attempt to use gatsby-theme-blog. its a nice yarn workspace. abandoned because shadowing sucked.
+## developing
 
-v3 is where we finally get it right! we are basing on https://github.com/eggheadio/gatsby-theme-egghead-blog
+This is a yarn workspace. please use `yarn`.
 
-## to do
+to run the example locally, just `yarn start`.
 
-- implement sitemap and manifest and offline
-- check rss
-- social cards
+Deploy is on Netlify.

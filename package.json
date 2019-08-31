@@ -1,0 +1,24 @@
+{
+  "name": "gatsby-theme-dev-blog-monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sw-yx/gatsby-theme-dev-blog",
+  "author": "sw-yx <swyx@dontemail.me>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "example": "yarn workspace example",
+    "start": "yarn example cleanstart",
+    "build": "yarn example build",
+    "theme": "yarn workspace gatsby-theme-dev-blog",
+    "postinstall": "patch-package"
+  },
+  "workspaces": [
+    "packages/*",
+    "example"
+  ],
+  "devDependencies": {
+    "patch-package": "^6.1.2",
+    "postinstall-postinstall": "^2.0.0"
+  }
+}
