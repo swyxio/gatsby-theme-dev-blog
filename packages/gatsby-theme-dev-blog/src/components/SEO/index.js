@@ -5,6 +5,27 @@ import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import SchemaOrg from './SchemaOrg'
 
+function urljoin(a, b, c) {
+  let str = a
+  if (typeof b === 'undefined') return str
+  if (a.endsWith('/') && b.startsWith('/')) {
+    str += b.slice(1)
+  } else if (!a.endsWith('/') && !b.startsWith('/')) {
+    str += '/' + b
+  } else {
+    str += b
+  }
+  if (typeof c === 'undefined') return str
+  if (b.endsWith('/') && c.startsWith('/')) {
+    str += c.slice(1)
+  } else if (!b.endsWith('/') && !c.startsWith('/')) {
+    str += '/' + c
+  } else {
+    str += c
+  }
+  return str
+}
+
 const SEO = ({ postData, frontmatter = {}, url, isBlogPost }) => (
   <StaticQuery
     query={graphql`
@@ -34,7 +55,10 @@ const SEO = ({ postData, frontmatter = {}, url, isBlogPost }) => (
         frontmatter || postData.childMarkdownRemark.frontmatter || {}
       const title = isBlogPost ? postMeta.title : siteMetadata.siteTitle
       const description = postMeta.description || siteMetadata.description
-      const image = url ? url + '/twitter-card.jpg' : siteMetadata.image
+      const image = url
+        ? urljoin(siteMetadata.canonicalUrl, url, '/twitter-card.jpg')
+        : siteMetadata.image
+      url = urljoin(siteMetadata.canonicalUrl, url)
       // const url = postMeta.slug
       //   ? `${siteMetadata.canonicalUrl}${path.sep}${postMeta.slug}`
       //   : siteMetadata.canonicalUrl
