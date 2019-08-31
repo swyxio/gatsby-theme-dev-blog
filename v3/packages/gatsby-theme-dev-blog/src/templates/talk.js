@@ -32,11 +32,7 @@ export default function Post({
 
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
-      <SEO
-        frontmatter={mdx.frontmatter}
-        isBlogPost
-        postImage={`/talks/${slug}/twitter-card.jpg`}
-      />
+      <SEO frontmatter={mdx.frontmatter} isBlogPost url={`/talks/${slug}`} />
       <article
         css={css`
           width: 100%;
