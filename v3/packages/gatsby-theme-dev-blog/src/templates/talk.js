@@ -25,13 +25,18 @@ export default function Post({
     topic,
     desc,
     description,
+    slug,
     ...misc
   } = mdx.frontmatter
   if (!author) author = site.siteMetadata.author.name
 
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
-      <SEO frontmatter={mdx.frontmatter} isBlogPost />
+      <SEO
+        frontmatter={mdx.frontmatter}
+        isBlogPost
+        postImage={`/talks/${slug}/twitter-card.jpg`}
+      />
       <article
         css={css`
           width: 100%;

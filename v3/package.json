@@ -3,10 +3,15 @@
   "scripts": {
     "example": "yarn workspace example",
     "start": "yarn example cleanstart",
-    "theme": "yarn workspace gatsby-theme-dev-blog"
+    "theme": "yarn workspace gatsby-theme-dev-blog",
+    "postinstall": "patch-package"
   },
   "workspaces": [
     "packages/*",
     "example"
-  ]
+  ],
+  "devDependencies": {
+    "patch-package": "^6.1.2",
+    "postinstall-postinstall": "^2.0.0"
+  }
 }

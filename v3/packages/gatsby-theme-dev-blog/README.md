@@ -23,3 +23,4 @@ dont forget to customize:
 - Site & Theme config files
 - ConvertKit subscribe form (Formik and Yup)
 - Placeholder illustrations by [Katerina Limpitsouni](https://twitter.com/ninalimpi) from [undraw.co](https://undraw.co/)
+- [social cards](https://www.gatsbyjs.org/packages/gatsby-remark-social-cards/)

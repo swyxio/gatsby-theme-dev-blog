@@ -18,10 +18,15 @@ export default function Post({
   const date = mdx.frontmatter.date
   const title = mdx.frontmatter.title
   const banner = mdx.frontmatter.banner
+  const slug = mdx.frontmatter.slug
 
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
-      <SEO frontmatter={mdx.frontmatter} isBlogPost />
+      <SEO
+        frontmatter={mdx.frontmatter}
+        isBlogPost
+        postImage={`/writing/${slug}/twitter-card.jpg`}
+      />
       <article
         css={css`
           width: 100%;

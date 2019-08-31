@@ -56,6 +56,28 @@ module.exports = ({
               withWebp: true,
             },
           },
+          {
+            resolve: `gatsby-remark-social-cards`,
+            // https://github.com/syntra/gatsby-remark-social-cards
+            options: {
+              title: {
+                font: 'DejaVuSansCondensed',
+                color: 'white', // black|white
+                size: 48, // 16|24|32|48|64
+              },
+              background: '#203141', // Background color for the card
+              meta: {
+                parts: [
+                  'swyx.io', // todo: figure out how to pull this from sitemetadata
+                  ' » ',
+                  { field: 'categories' },
+                  ' » ',
+                  { field: 'date', format: 'mmm dS yyyy' },
+                ],
+                color: 'white', // black|white
+              },
+            },
+          },
           { resolve: `gatsby-remark-code-titles` },
           { resolve: `gatsby-remark-prismjs` }, // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/?=gatsby-remark-prismjs
           // { resolve: `gatsby-remark-numbered-footnotes` }, // Bug: definition.identifier.toUpperCase is not a function

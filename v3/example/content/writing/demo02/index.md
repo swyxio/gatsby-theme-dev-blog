@@ -4,6 +4,7 @@ date: 2018-01-01
 title: 'Testing nested lists'
 description: 'Sed vehicula mauris vel felis faucibus placerat. Quisque sed justo quis tellus aliquam tincidunt. Vestibulum sit amet ante sit amet nibh accumsan viverra.'
 published: true
+categories: ['Tech', 'JavaScript']
 banner: './banner.png'
 ---
 
