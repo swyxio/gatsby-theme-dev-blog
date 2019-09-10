@@ -46,18 +46,19 @@ const getConfig = ({ githubUrl, twitterUrl }) => {
       Icon: GitHubIcon,
     },
   }
-  switch (true) {
-    case Boolean(githubUrl):
-      return config.github
-    case Boolean(twitterUrl):
-      return config.twitter
-    default:
-      return {
-        to: '',
-        label: '',
-        Icon: () => null,
-        hidden: true,
-      }
+  if (Boolean(githubUrl)) {
+    return config.github
+  }
+
+  if (Boolean(twitterUrl)) {
+    return config.twitter
+  }
+
+  return {
+    to: '',
+    label: '',
+    Icon: () => null,
+    hidden: true,
   }
 }
 
