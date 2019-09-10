@@ -16,6 +16,14 @@ module.exports = ({ node, getNode, actions }, themeOptions) => {
     else if (parent.sourceInstanceName === 'gatsby-theme-dev-blog:talksPath')
       slug = 'talks/' + slug
 
+    // // TODO: add isPost instead of filtering by sourceInstanceName?
+    // // https://github.com/eggheadio/gatsby-theme-egghead-blog/pull/10/files
+    // createNodeField({
+    //   name: 'isPost',
+    //   node,
+    //   value: true,
+    // })
+
     createNodeField({
       name: 'id',
       node,
